@@ -1,0 +1,3 @@
+[DEBUG][2018-08-31 17:28:48,378] : this is log4cxx test
+[INFO ][2018-08-31 17:28:48,381] : Simple message text.
+[INFO ][2018-08-31 17:28:48,384] : Hello, World
