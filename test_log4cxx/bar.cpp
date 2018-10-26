@@ -4,9 +4,9 @@
 using namespace com::foo;
 using namespace log4cxx;
 
-LoggerPtr Bar::logger(Logger::getLogger("com.foo.bar"));
+LoggerPtr Bar::logger(Logger::getLogger("IN_bar"));
 
 
 void Bar::doIt() {
-	LOG4CXX_DEBUG(logger, "Did it again!");
+	//LOG4CXX_INFO(logger, "Did it again!");
 }

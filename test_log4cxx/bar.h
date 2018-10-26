@@ -4,9 +4,12 @@
 namespace com {
 	namespace foo {
 		class Bar {
+
 		static log4cxx::LoggerPtr logger;
 
 		public:
+			Bar(){};
+			~Bar(){};
 			void doIt();
 		};
 	}

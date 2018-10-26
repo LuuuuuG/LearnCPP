@@ -1,3 +1,4 @@
-[DEBUG][2018-08-31 17:28:48,378] : this is log4cxx test
-[INFO ][2018-08-31 17:28:48,381] : Simple message text.
-[INFO ][2018-08-31 17:28:48,384] : Hello, World
+[INFO ][2018-09-18 17:15:14,230] : Entering application.
+[WARN ][2018-09-18 17:15:16,721] : Did it again!
+[INFO ][2018-09-18 17:15:44,172] : Entering application.
+[INFO ][2018-09-18 17:15:47,052] : Did it again!

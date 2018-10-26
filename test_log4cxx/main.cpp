@@ -5,11 +5,11 @@ using namespace com::foo;
 #include "log4cxx/logger.h"
 #include "log4cxx/basicconfigurator.h"
 #include "log4cxx/helpers/exception.h"
-
+#include "log4cxx/propertyconfigurator.h"
 using namespace log4cxx;
 using namespace log4cxx::helpers;
 
-LoggerPtr logger(Logger::getLogger("MyApp"));
+LoggerPtr logger(Logger::getLogger("IN_main"));
 
 int main(int argc, char **argv)
 {
@@ -17,7 +17,8 @@ int main(int argc, char **argv)
 	try
 	{
 		// Set up a simple configuration that logs on the console.
-		BasicConfigurator::configure();
+		//BasicConfigurator::configure();
+		log4cxx::PropertyConfigurator::configure("E:/log/log4cxx.properties");
 
 		LOG4CXX_INFO(logger, "Entering application.");
 		Bar bar;
