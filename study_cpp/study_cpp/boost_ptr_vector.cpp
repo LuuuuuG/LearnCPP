@@ -1,10 +1,11 @@
 #include <iostream>
 #include <vector>
 
+#if 0
 #include <boost/shared_ptr.hpp>
 #include <boost/ptr_container/ptr_vector.hpp>
 
-#if 0
+
 class A
 {
 public:
