@@ -21,10 +21,16 @@ int get_max_diff(vector<int> list)
 	return max_dif;
 }
 
-
+void testChar()
+{
+	for (char i = 0; i < 256; ++i)
+	{
+		printf("%d\n", i);//ÎÞÏÞÑ­»·
+	}
+}
 
 int main_test(){
-
+	testChar();
 	vector<int> v1 = { 1, 2, 3, 4, 5 };
 	vector<int> v2 = { 5, 4, 3, 2, 1 };
 	int res = get_max_diff(v1);
