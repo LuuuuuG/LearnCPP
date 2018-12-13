@@ -1,5 +1,5 @@
 #ifndef _UTIL_H_
-#endif	_UTIL_H_
+#define	_UTIL_H_
 
 #include <iostream>
 #include <vector>
@@ -63,3 +63,5 @@ void TreePrint(TreeNode *root)
 	SubTreePrint(root, 0);
 	cout << "------------------------------------" << endl;
 }
+
+#endif
