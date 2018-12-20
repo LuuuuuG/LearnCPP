@@ -18,7 +18,7 @@ void quickSort(vector<T> &v, int left, int right)
 
 	int i = left, j = right;
 	T pivot = v[i];
-
+	//cout << "piovt = " << pivot << endl;
 	while (i < j)
 	{
 		while (i < j && v[j] >= pivot) --j;
@@ -28,13 +28,16 @@ void quickSort(vector<T> &v, int left, int right)
 	}
 	v[i] = pivot;
 
+	//for (auto i : v)
+	//	cout << i << " ";
+	//cout << endl;
 	quickSort(v, left, i - 1);
 	quickSort(v, i + 1, right);
 }
 
-int main_qsort()
+int main_qs()
 {
-	vector<int> v = { 9, 6, 3, 2, 5, 1, 7, 10, 4 };
+	vector<int> v = { 5, 6, 3, 2, 9, 1, 7, 10, 4 };
 	//for (int i = 0; i < 10; ++i)
 	//{
 	//	int val = rand();
@@ -42,15 +45,15 @@ int main_qsort()
 	//}
 	for (auto i : v)
 		cout << i << " ";
-
-	cout << endl;
+	cout << "\n-----------Sort begin--------------\n";
 
 	quickSort(v, 0, v.size() - 1);
+
+	cout << "\n-----------Sort end--------------\n";
 
 	for (auto i : v)
 		cout << i << " ";
 
-	cout << endl;
 
 	system("pause");
 	return 0;
