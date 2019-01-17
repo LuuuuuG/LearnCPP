@@ -13,6 +13,14 @@ int main_sizeof_arr_ptr() {
 	int size3 = getSize(data1);//8
 
 	printf("%d, %d, %d", size1, size2, size3);
+
+	int size4 = sizeof(int);//4
+
+	int size5 = sizeof(void*);//8
+
+	char sz[100];
+	int size6 = sizeof(sz);//100
+
 	getchar();
 	return 0;
 }
