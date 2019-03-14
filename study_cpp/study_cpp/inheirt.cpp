@@ -44,13 +44,13 @@ public:
 int main_inheirt()
 {
 	A* obj = new B;
-	obj->Show();
+	obj->Show();//B
 
 	A* obj2 = new C;
-	obj2->Show();
+	obj2->Show();//C
 
 	A* obj3 = new D;
-	obj3->Show();
+	obj3->Show();//D
 
 	system("pause");
 	return 0;
