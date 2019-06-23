@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'SimulateVisionDialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.7
+** Created by: Qt User Interface Compiler version 5.9.8
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -19,7 +19,7 @@
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QListView>
+#include <QtWidgets/QTableView>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -35,9 +35,9 @@ public:
     QCheckBox *savePointCloud;
     QGroupBox *groupBox_2;
     QGridLayout *gridLayout;
+    QTableView *tableView;
     QLabel *label;
     QCheckBox *EnableAutoSimulation;
-    QListView *listView;
     QDialogButtonBox *buttonBox;
 
     void setupUi(QWidget *mmind__SimulateVisionDialog)
@@ -79,6 +79,26 @@ public:
         groupBox_2->setBaseSize(QSize(0, 20));
         gridLayout = new QGridLayout(groupBox_2);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        tableView = new QTableView(groupBox_2);
+        tableView->setObjectName(QStringLiteral("tableView"));
+        tableView->setEnabled(true);
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(tableView->sizePolicy().hasHeightForWidth());
+        tableView->setSizePolicy(sizePolicy);
+        tableView->setMouseTracking(true);
+        tableView->setLayoutDirection(Qt::LeftToRight);
+        tableView->setAutoFillBackground(true);
+        tableView->setAutoScroll(false);
+        tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        tableView->setProperty("showDropIndicator", QVariant(false));
+        tableView->setAlternatingRowColors(true);
+        tableView->setShowGrid(false);
+        tableView->verticalHeader()->setVisible(false);
+
+        gridLayout->addWidget(tableView, 3, 0, 1, 1, Qt::AlignVCenter);
+
         label = new QLabel(groupBox_2);
         label->setObjectName(QStringLiteral("label"));
 
@@ -89,15 +109,6 @@ public:
         EnableAutoSimulation->setEnabled(true);
 
         gridLayout->addWidget(EnableAutoSimulation, 0, 0, 1, 1);
-
-        listView = new QListView(groupBox_2);
-        listView->setObjectName(QStringLiteral("listView"));
-        listView->setEnabled(true);
-        listView->setMouseTracking(true);
-        listView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-        listView->setSelectionRectVisible(false);
-
-        gridLayout->addWidget(listView, 3, 0, 1, 1);
 
 
         gridLayout_2->addWidget(groupBox_2, 2, 0, 1, 1);

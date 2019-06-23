@@ -4,7 +4,7 @@
 #include <QDirIterator>
 #include <QStringListModel>
 #include <QStandardItemModel>
-
+#include <QApplication>
 #include "SimulateVisionDialog.h"
 #include "ui_SimulateVisionDialog.h"
 //#include "PluginManager.h"
@@ -12,16 +12,18 @@
 //#include "util_json.h"
 //#include "PclShowService.h"
 #include <fstream>
+#include <qDebug>
 
 using namespace std;
 namespace mmind {
 namespace {
 const QString kSavePointCloud = "savePointCloud";
+//const QString kResDir = QApplication::applicationDirPath() + '/' + "vision_results";
 const QString kResDir = "E:/workspace/QListViewDemo/release/vision_results";
 string pathNoSuffix(const QString& baseName)
 {
     if (baseName.isEmpty()) return {};
-    const QString res = "vision_results/" + baseName.mid(0, 4) + '-' + baseName.mid(4, 2) + '-' +
+    const QString res = kResDir + '/' + baseName.mid(0, 4) + '-' + baseName.mid(4, 2) + '-' +
                   baseName.mid(6, 2) + '/' + baseName;
     return res.toStdString();
 }
@@ -42,6 +44,11 @@ void SimulateVisionDialog::on_savePointCloud_clicked(bool checked)
 }
 
 void SimulateVisionDialog::on_listView_clicked(const QModelIndex& index)
+{
+    _listIndex = index.row();
+}
+
+void SimulateVisionDialog::on_tableView_clicked(const QModelIndex &index)
 {
     _listIndex = index.row();
 }
@@ -70,8 +77,8 @@ string SimulateVisionDialog::simulateVisionPoses()
 
     if (ui->EnableAutoSimulation->isChecked())
     {
-        QModelIndex Index = ui->listView->model()->index(_listIndex, 0);
-        ui->listView->selectionModel()->setCurrentIndex(Index, QItemSelectionModel::SelectCurrent);
+        QModelIndex Index = ui->tableView->model()->index(_listIndex, 0);
+        ui->tableView->selectionModel()->setCurrentIndex(Index, QItemSelectionModel::SelectCurrent);
         --_listIndex;
     }
 
@@ -104,17 +111,56 @@ void SimulateVisionDialog::initSettings()
 //    ui->savePointCloud->setChecked(settings.value(kSavePointCloud, false).toBool());
 //    settings.endGroup();
 
-    QStringListModel* mode = new QStringListModel(this);
-//    QStandardItemModel* mode = new QStandardItemModel(this);
+//    QStringListModel* mode = new QStringListModel(this);
+    QStandardItemModel* mode = new QStandardItemModel(this);
+    mode->setHorizontalHeaderLabels(QStringList() << "Poses" << "With Cloud" << "With Transform");
+
+//    mode->setColumnCount(3);
 
     QDirIterator it(kResDir, QStringList() << "*.json", QDir::Files,
                     QDirIterator::Subdirectories);
 
-    while (it.hasNext()) _strList.push_front(QFileInfo(it.next()).baseName());
+    int i = 0;
+    while (it.hasNext())
+    {       
 
-    mode->setStringList(_strList);
+        const QString file = QFileInfo(it.next()).baseName();
+        QStandardItem* item0 = new QStandardItem(file);
+        item0->setTextAlignment(Qt::AlignCenter);
 
-    ui->listView->setModel(mode);
+
+        QStandardItem* item1 = new QStandardItem(QFile((pathNoSuffix(file) + ".cloud").c_str()).exists() ? "Yes" : "No");
+//        item1->setCheckable(false);
+//        item1->setCheckState(Qt::Checked);
+        item1->setTextAlignment(Qt::AlignCenter);
+//        item1->setSelectable(false);
+
+
+        QStandardItem* item2 = new QStandardItem(QFile((pathNoSuffix(file) + ".transform").c_str()).exists() ? "Yes" : "No");
+//        item2->setCheckable(false);
+//        item2->setCheckState(Qt::Checked);
+        item2->setTextAlignment(Qt::AlignCenter);
+//        item2->setSelectable(false);
+
+        mode->setItem(i,0, item0);
+        mode->setItem(i,1, item1);
+        mode->setItem(i,2, item2);
+
+        ++i;
+    }
+
+//    mode->setStringList(_strList);
+
+
+
+    ui->tableView->setModel(mode);
+    ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+
+    ui->tableView->horizontalHeader()->setSectionsClickable(false);
+//    ui->tableView->horizontalHeader()->setDefaultAlignment(Qt::AlignCenter);
+    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
+
 }
 
 } // namespace mmind
