@@ -1,0 +1,65 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "(crash_generation)", "..\..\..\..\..\gyp\crash_generation", "{71054F76-E083-ED71-B3F9-3E9B872F3E9E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "common", "..\common.vcxproj", "{A1B84929-D7AA-D0E3-2863-53C6CFAE8BB1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "crash_generation_client", "crash_generation_client.vcxproj", "{6C988E46-2930-A429-0D19-292717968F0A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "crash_generation_server", "crash_generation_server.vcxproj", "{4791FA4C-2164-CAE2-0AB9-96C5159431EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Release|Win32 = Release|Win32
+		Debug|x64 = Debug|x64
+		Purify|Win32 = Purify|Win32
+		Debug|Win32 = Debug|Win32
+		Purify|x64 = Purify|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4791FA4C-2164-CAE2-0AB9-96C5159431EA}.Release|Win32.ActiveCfg = Release|Win32
+		{4791FA4C-2164-CAE2-0AB9-96C5159431EA}.Release|Win32.Build.0 = Release|Win32
+		{4791FA4C-2164-CAE2-0AB9-96C5159431EA}.Debug|x64.ActiveCfg = Debug|x64
+		{4791FA4C-2164-CAE2-0AB9-96C5159431EA}.Debug|x64.Build.0 = Debug|x64
+		{4791FA4C-2164-CAE2-0AB9-96C5159431EA}.Purify|Win32.ActiveCfg = Purify|Win32
+		{4791FA4C-2164-CAE2-0AB9-96C5159431EA}.Purify|Win32.Build.0 = Purify|Win32
+		{4791FA4C-2164-CAE2-0AB9-96C5159431EA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4791FA4C-2164-CAE2-0AB9-96C5159431EA}.Debug|Win32.Build.0 = Debug|Win32
+		{4791FA4C-2164-CAE2-0AB9-96C5159431EA}.Purify|x64.ActiveCfg = Purify|x64
+		{4791FA4C-2164-CAE2-0AB9-96C5159431EA}.Purify|x64.Build.0 = Purify|x64
+		{4791FA4C-2164-CAE2-0AB9-96C5159431EA}.Release|x64.ActiveCfg = Release|x64
+		{4791FA4C-2164-CAE2-0AB9-96C5159431EA}.Release|x64.Build.0 = Release|x64
+		{6C988E46-2930-A429-0D19-292717968F0A}.Release|Win32.ActiveCfg = Release|Win32
+		{6C988E46-2930-A429-0D19-292717968F0A}.Release|Win32.Build.0 = Release|Win32
+		{6C988E46-2930-A429-0D19-292717968F0A}.Debug|x64.ActiveCfg = Debug|x64
+		{6C988E46-2930-A429-0D19-292717968F0A}.Debug|x64.Build.0 = Debug|x64
+		{6C988E46-2930-A429-0D19-292717968F0A}.Purify|Win32.ActiveCfg = Purify|Win32
+		{6C988E46-2930-A429-0D19-292717968F0A}.Purify|Win32.Build.0 = Purify|Win32
+		{6C988E46-2930-A429-0D19-292717968F0A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6C988E46-2930-A429-0D19-292717968F0A}.Debug|Win32.Build.0 = Debug|Win32
+		{6C988E46-2930-A429-0D19-292717968F0A}.Purify|x64.ActiveCfg = Purify|x64
+		{6C988E46-2930-A429-0D19-292717968F0A}.Purify|x64.Build.0 = Purify|x64
+		{6C988E46-2930-A429-0D19-292717968F0A}.Release|x64.ActiveCfg = Release|x64
+		{6C988E46-2930-A429-0D19-292717968F0A}.Release|x64.Build.0 = Release|x64
+		{A1B84929-D7AA-D0E3-2863-53C6CFAE8BB1}.Release|Win32.ActiveCfg = Release|Win32
+		{A1B84929-D7AA-D0E3-2863-53C6CFAE8BB1}.Release|Win32.Build.0 = Release|Win32
+		{A1B84929-D7AA-D0E3-2863-53C6CFAE8BB1}.Debug|x64.ActiveCfg = Debug|x64
+		{A1B84929-D7AA-D0E3-2863-53C6CFAE8BB1}.Debug|x64.Build.0 = Debug|x64
+		{A1B84929-D7AA-D0E3-2863-53C6CFAE8BB1}.Purify|Win32.ActiveCfg = Purify|Win32
+		{A1B84929-D7AA-D0E3-2863-53C6CFAE8BB1}.Purify|Win32.Build.0 = Purify|Win32
+		{A1B84929-D7AA-D0E3-2863-53C6CFAE8BB1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A1B84929-D7AA-D0E3-2863-53C6CFAE8BB1}.Debug|Win32.Build.0 = Debug|Win32
+		{A1B84929-D7AA-D0E3-2863-53C6CFAE8BB1}.Purify|x64.ActiveCfg = Purify|x64
+		{A1B84929-D7AA-D0E3-2863-53C6CFAE8BB1}.Purify|x64.Build.0 = Purify|x64
+		{A1B84929-D7AA-D0E3-2863-53C6CFAE8BB1}.Release|x64.ActiveCfg = Release|x64
+		{A1B84929-D7AA-D0E3-2863-53C6CFAE8BB1}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6C988E46-2930-A429-0D19-292717968F0A} = {71054F76-E083-ED71-B3F9-3E9B872F3E9E}
+		{4791FA4C-2164-CAE2-0AB9-96C5159431EA} = {71054F76-E083-ED71-B3F9-3E9B872F3E9E}
+	EndGlobalSection
+EndGlobal
