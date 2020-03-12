@@ -26,12 +26,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         mainwindow.cpp \
     itemdelegate.cpp \
-    SimulateVisionDialog.cpp
+    SimulateVisionDialog.cpp \
+    signalblocker.cpp
 
 HEADERS  += mainwindow.h \
     itemdelegate.h \
     itemdef.h \
-    SimulateVisionDialog.h
+    SimulateVisionDialog.h \
+    signalblocker.h
 
 FORMS    += mainwindow.ui \
-    SimulateVisionDialog.ui
+    SimulateVisionDialog.ui \
+    signalblocker.ui

@@ -15,7 +15,7 @@ class SimulateVisionDialog : public QDialog
 public:
     explicit SimulateVisionDialog(QWidget* parent = nullptr);
     ~SimulateVisionDialog();
-    void initSettings();
+    void update();
     std::string simulateVisionPoses();
 
 private slots:
@@ -29,6 +29,7 @@ private slots:
 
     void on_buttonBox_rejected();
 
+    void backupSlot();
 private:
     int _listIndex;
     QStringList _strList;

@@ -67,9 +67,9 @@ int main()
 		kPipeName, 
 		&custom_info);
 
-	DerefZeroCrash();
+	//DerefZeroCrash();
 	//InvalidParamCrash();
-	//RequestDump();
+	RequestDump();
 
 	system("pause");
 	return 0;

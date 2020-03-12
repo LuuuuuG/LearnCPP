@@ -2,8 +2,12 @@
 int getSize(int data[]) {
 	return sizeof(data);
 }
+struct MyStruct
+{
 
-int main_sizeof_arr_ptr() {
+};
+
+int main_sizeof() {
 	int data1[5] = { 1,2,3,4,5 };
 	int size1 = sizeof(data1);//20
 
@@ -20,6 +24,10 @@ int main_sizeof_arr_ptr() {
 
 	char sz[100];
 	int size6 = sizeof(sz);//100
+
+	MyStruct stru;
+
+	printf("stru = %d\n", sizeof(stru)); //1
 
 	getchar();
 	return 0;

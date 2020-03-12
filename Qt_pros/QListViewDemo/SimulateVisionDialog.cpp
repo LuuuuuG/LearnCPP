@@ -2,6 +2,7 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QDirIterator>
+#include <QTreeView>
 #include <QStringListModel>
 #include <QStandardItemModel>
 #include <QApplication>
@@ -18,7 +19,6 @@ using namespace std;
 namespace mmind {
 namespace {
 const QString kSavePointCloud = "savePointCloud";
-//const QString kResDir = QApplication::applicationDirPath() + '/' + "vision_results";
 const QString kResDir = "E:/workspace/QListViewDemo/release/vision_results";
 string pathNoSuffix(const QString& baseName)
 {
@@ -33,9 +33,28 @@ SimulateVisionDialog::SimulateVisionDialog(QWidget* parent)
     : QDialog(parent), ui(new Ui::SimulateVisionDialog)
 {
     ui->setupUi(this);
-    initSettings();
-}
+    ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
 
+    ui->tableView->horizontalHeader()->setSectionsClickable(false);
+    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableView->horizontalHeader()->setSortIndicator(0,Qt::AscendingOrder);
+
+    ui->tableView->setFocusPolicy(Qt::ClickFocus);
+
+    ui->tableView->setContextMenuPolicy(Qt::ActionsContextMenu);
+    QAction *backupAction = new QAction("Backup This Record");
+    ui->tableView->addAction(backupAction);
+    connect(backupAction, SIGNAL(triggered(bool)), this, SLOT(backupSlot()));
+    update();
+}
+void SimulateVisionDialog::backupSlot()
+{
+//    _listIndex = ui->tableView->currentIndex().row();
+//    qDebug() << "2333 wth _listIndex:" << _listIndex << " _strList:" << _strList[_listIndex];
+    QModelIndex curIndex = ui->tableView->currentIndex();
+    qDebug() << "2333 wth data:" << curIndex.sibling(curIndex.row(), 0).data().toString();
+    //TODO: set file readonly
+}
 SimulateVisionDialog::~SimulateVisionDialog() { delete ui; }
 
 void SimulateVisionDialog::on_savePointCloud_clicked(bool checked)
@@ -53,6 +72,7 @@ void SimulateVisionDialog::on_tableView_clicked(const QModelIndex &index)
     _listIndex = index.row();
 }
 
+
 void SimulateVisionDialog::on_buttonBox_accepted()
 {
 //    QSettings& settings = mmindSettings();
@@ -68,6 +88,7 @@ void SimulateVisionDialog::on_buttonBox_accepted()
 }
 
 void SimulateVisionDialog::on_buttonBox_rejected() { QDialog::reject(); }
+
 
 string SimulateVisionDialog::simulateVisionPoses()
 {
@@ -104,7 +125,7 @@ string SimulateVisionDialog::simulateVisionPoses()
     return poses;
 }
 
-void SimulateVisionDialog::initSettings()
+void SimulateVisionDialog::update()
 {
 //    QSettings& settings = mmindSettings();
 //    settings.beginGroup(kVizGroup);
@@ -154,12 +175,6 @@ void SimulateVisionDialog::initSettings()
 
 
     ui->tableView->setModel(mode);
-    ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
-
-    ui->tableView->horizontalHeader()->setSectionsClickable(false);
-//    ui->tableView->horizontalHeader()->setDefaultAlignment(Qt::AlignCenter);
-    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-
 
 }
 

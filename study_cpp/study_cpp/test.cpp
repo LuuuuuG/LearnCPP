@@ -29,24 +29,23 @@ void testChar()
 	}
 }
 
-int main_test(){
-	testChar();
+int main_test() {
+
 	vector<int> v1 = { 1, 2, 3, 4, 5 };
 	vector<int> v2 = { 5, 4, 3, 2, 1 };
 	int res = get_max_diff(v1);
-	cout << res << endl;
+	//cout << res << endl;
 
-	cout << "====================" << endl;
-	int a = 2, b = 3;
-	res = abs(a - b);
-	cout << res << endl;
+	//cout << "====================" << endl;
+	//int a = 2, b = 3;
+	//res = abs(a - b);
+	//cout << res << endl;
 
-	char buf[100];
-	for (int i = 0; i < 999999; ++i)
-	{
-		sprintf_s(buf,"%06s", i);
-		//set.insert(buf);
-	}
+	cout << "==========" << endl;
+	int a[5] = { 1,2,3,4,5 };
+	int* ptr = (int*)(&a + 1);
+	printf("%d\n", *ptr);
+	printf("%d %d\n", *(a + 1), *(ptr - 1));
 
 	system("pause");
 	return 0;
